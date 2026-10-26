@@ -20,11 +20,26 @@ def save_profile(profile_data: Dict[str, Any]) -> None:
     with open(PROFILE_PATH, "w", encoding="utf-8") as f:
         json.dump(profile_data, f, indent=2)
 
-def update_weights(keywords: List[str], rating: int) -> None:
+# Each scale maps a rating to (label, description, weight adjustment per matched keyword).
+# A rating can only change the weights of keywords that matched the article.
+RATING_SCALES = {
+    5: {
+        1: ("Strongly dislike", "Show far fewer articles like this.", -0.2),
+        2: ("Dislike", "Show somewhat fewer articles like this.", -0.1),
+        3: ("Neutral", "No effect on future recommendations.", 0.0),
+        4: ("Like", "Show somewhat more articles like this.", 0.1),
+        5: ("Strongly like", "Show far more articles like this.", 0.2),
+    },
+}
+CURRENT_RATING_SCALE = 5
+
+def rating_adjustment(rating: int, scale: int = CURRENT_RATING_SCALE) -> float:
+    return RATING_SCALES[scale][rating][2]
+
+def update_weights(keywords: List[str], rating: int, scale: int = CURRENT_RATING_SCALE) -> None:
     profile = load_profile()
     
-    # Weight logic: adjustment = (rating - 3) * 0.1
-    adjustment = (rating - 3) * 0.1
+    adjustment = rating_adjustment(rating, scale)
     
     for keyword in keywords:
         kw_lower = keyword.lower()
@@ -42,6 +57,8 @@ def update_weights(keywords: List[str], rating: int) -> None:
     profile["history"].append({
         "keywords": keywords,
         "rating": rating,
+        "scale": scale,
+        "label": RATING_SCALES[scale][rating][0],
         "adjustment": adjustment
     })
     

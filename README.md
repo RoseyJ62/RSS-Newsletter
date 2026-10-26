@@ -99,3 +99,14 @@ timezone = "America/Chicago"
 ```
 
 For production, run `python -m news_digest schedule --config config.toml` under systemd, Task Scheduler, Docker, or another process supervisor.
+
+## Desktop App (News Digest Controller)
+
+`main.py` launches a Tkinter window with four tabs:
+
+- **Dashboard**: run the digest now, start or stop the built-in schedule, and jump to the other tabs.
+- **Articles**: the latest digest, ranked by keyword relevance. Each card can be opened, saved (☆ Save / ★ Saved) and optionally rated. "How do ratings work?" explains what each rating does.
+- **Saved Articles**: bookmarked articles with their title, link, summary, source and dates. Open the original or remove it. Saved articles are stored in `saved_articles.json` next to the app, so they survive restarts and stay available after they drop out of the feeds. Duplicates (same URL) are ignored.
+- **Settings**: RSS feeds, schedule, and **Keyword Management** for the high-signal keywords in `osf_context.json`. Keywords can be added, edited and removed. Duplicates are blocked regardless of case or extra spaces, and nothing is written until you click Save Keywords.
+
+Data files used by the desktop app: `config_local.json` (feeds and schedule), `osf_context.json` (scoring keywords), `user_profile.json` (keyword weights and rating history) and `saved_articles.json` (saved articles).
