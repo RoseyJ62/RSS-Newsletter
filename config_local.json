@@ -1,0 +1,15 @@
+{
+    "rss_feeds": [
+        "https://www.beckershospitalreview.com/feed/",
+        "https://www.osfhealthcare.org/blog/feed/",
+        "https://feeds.bbci.co.uk/news/world/rss.xml",
+        "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/medwatch/rss.xml",
+        "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/press-releases/rss.xml",
+        "https://www.healthcareitnews.com/content-feed/all",
+        "https://www.cms.gov/newsroom/rss-feeds"
+    ],
+    "frequency": "daily",
+    "schedule_day": "Thursday",
+    "schedule_time": "08:30",
+    "auto_start_schedule": true
+}

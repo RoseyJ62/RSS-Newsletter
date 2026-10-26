@@ -1,0 +1,24 @@
+[project]
+name = "executive-news-digest"
+version = "0.1.0"
+description = "Backend-only Python news digest scraper, formatter, emailer, and scheduler."
+requires-python = ">=3.11"
+dependencies = [
+    "tzdata; platform_system == 'Windows'",
+]
+
+[project.scripts]
+news-digest = "news_digest.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+news_digest = ["config.example.toml"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

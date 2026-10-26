@@ -1,0 +1,47 @@
+[digest]
+title = "Executive News Digest"
+max_items = 12
+lookback_hours = 36
+include_summaries = true
+
+[[sources]]
+name = "BBC World"
+url = "https://feeds.bbci.co.uk/news/world/rss.xml"
+category = "World"
+enabled = true
+
+[[sources]]
+name = "NYT Business"
+url = "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml"
+category = "Business"
+enabled = true
+
+[[sources]]
+name = "NYT Top News"
+url = "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+category = "Top News"
+enabled = true
+
+[email]
+enabled = false
+smtp_host = "smtp.example.com"
+smtp_port = 587
+use_tls = true
+username = "sender@example.com"
+smtp_password_env = "NEWS_DIGEST_SMTP_PASSWORD"
+from_address = "sender@example.com"
+to = ["recipient@example.com"]
+subject_prefix = "[Digest]"
+
+[schedule]
+enabled = false
+frequency = "daily"
+day = "monday"
+time = "07:30"
+timezone = "America/Chicago"
+
+[ai]
+enabled = false
+command = ["ollama", "run", "llama3.2"]
+timeout_seconds = 60
+

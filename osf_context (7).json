@@ -1,0 +1,16 @@
+{
+  "focus_areas": [
+    { "name": "Digital Transformation", "weight": 2, "keywords": ["AI", "machine learning", "automation", "telehealth", "digital"] }
+  ],
+  "strategic_goals": [
+    { "name": "Patient Experience", "weight": 1, "keywords": ["patient care", "experience", "satisfaction", "engagement"] }
+  ],
+  "initiatives": [
+    { "name": "Cybersecurity", "weight": 3, "keywords": ["security", "cyber", "ransomware", "breach", "data protection"] }
+  ],
+  "keyword_rules": {
+    "high_signal": ["AI", "cybersecurity", "acquisition"],
+    "low_signal": ["update", "announces", "weekly"],
+    "low_signal_requires_pair": true
+  }
+}

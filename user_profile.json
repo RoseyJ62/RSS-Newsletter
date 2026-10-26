@@ -1,0 +1,13 @@
+{
+  "keyword_weights": {
+    "healthcare": 2.0,
+    "innovation": 1.0,
+    "startup": 1.0,
+    "research": 1.0,
+    "AI": 1.0,
+    "patient care": 1.0,
+    "Destination Center": 2.0,
+    "OSF HealthCare": 2.0
+  },
+  "history": []
+}

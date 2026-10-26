@@ -1,0 +1,64 @@
+{
+  "focus_areas": [
+    {
+      "name": "Innovation",
+      "weight": 2,
+      "keywords": [
+        "innovation",
+        "prototype",
+        "startup",
+        "research",
+        "AI",
+        "machine learning",
+        "automation",
+        "telehealth",
+        "digital"
+      ]
+    }
+  ],
+  "strategic_goals": [
+    {
+      "name": "Patient Experience",
+      "weight": 3,
+      "keywords": [
+        "patient care",
+        "experience",
+        "satisfaction",
+        "engagement",
+        "Destination Center",
+        " OSF HealthCare",
+        "OSF Cancer Institute",
+        "OSF Heart Institute",
+        "OSF Children's Hospital",
+        "OSF Neurological Institute",
+        "OSF Rehabilitation Institute",
+        "OSF Jump Trading Simulation & Education Center"
+      ]
+    }
+  ],
+  "initiatives": [
+    {
+      "name": "Cybersecurity",
+      "weight": 1,
+      "keywords": [
+        "security",
+        "ransomware",
+        "breach",
+        "data protection"
+      ]
+    }
+  ],
+  "keyword_rules": {
+    "high_signal": [
+      "acquisition",
+      "Destination Center",
+      "OSF HealthCare"
+    ],
+    "low_signal": [
+      "update",
+      "announces",
+      "weekly"
+    ],
+    "low_signal_requires_pair": true
+  }
+}

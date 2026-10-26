@@ -1,0 +1,56 @@
+[digest]
+title = "Innovation Studio News Digest"
+max_items = 12
+lookback_hours = 168
+include_summaries = true
+
+[[sources]]
+name = "BBC World"
+url = "https://feeds.bbci.co.uk/news/world/rss.xml"
+category = "World"
+enabled = true
+
+[[sources]]
+name = "OpenAI"
+url = "https://openai.com/news/"
+category = "Tech"
+enabled = true
+
+[[sources]]
+name = "FDA"
+url = "https://www.fda.gov/news-events/fda-newsroom"
+category = "Regulation"
+enabled = true
+
+[[sources]]
+name = "NYT Health"
+url = "https://rss.nytimes.com/services/xml/rss/nyt/Health.xml"
+category = "healthcare"
+enabled = true
+
+[email]
+enabled = true
+smtp_host = "smtp.gmail.com"
+smtp_port = 587
+use_tls = true
+username = "nomadstower@gmail.com"
+smtp_password_env = "NEWS_DIGEST_SMTP_PASSWORD"
+from_address = "nomadstower@gmail.com"
+to = [
+    "dakota.reed@osfhealthcare.org",
+    "dakota.middle.reed@gmail.com"
+]
+subject_prefix = "[Digest]"
+
+[schedule]
+enabled = true
+frequency = "daily"
+day = "monday"
+time = "15:43"
+timezone = "America/Chicago"
+
+[ai]
+enabled = false
+command = ["ollama", "run", "llama3.2"]
+timeout_seconds = 60
+
