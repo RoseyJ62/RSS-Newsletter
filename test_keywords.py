@@ -74,5 +74,13 @@ class KeywordTests(unittest.TestCase):
         self.assertEqual(sorted(after["matched_keywords"]), ["merger", "update"])
 
 
+    def test_keywords_with_stray_spaces_still_match_and_use_profile_weight(self):
+        context = {"strategic_goals": [{"name": "Patient", "weight": 3, "keywords": [" OSF HealthCare"]}]}
+        result = scorer.score_article("OSF HealthCare expands", "", {"keyword_weights": {"osf healthcare": 2.0}}, context)
+
+        self.assertEqual(result["matched_keywords"], ["osf healthcare"])
+        self.assertEqual(result["score"], 6.0)
+
+
 if __name__ == "__main__":
     unittest.main()

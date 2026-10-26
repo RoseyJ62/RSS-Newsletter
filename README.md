@@ -109,4 +109,6 @@ For production, run `python -m news_digest schedule --config config.toml` under 
 - **Saved Articles**: bookmarked articles with their title, link, summary, source and dates. Open the original or remove it. Saved articles are stored in `saved_articles.json` next to the app, so they survive restarts and stay available after they drop out of the feeds. Duplicates (same URL) are ignored.
 - **Settings**: RSS feeds, schedule, and **Keyword Management** for the high-signal keywords in `osf_context.json`. Keywords can be added, edited and removed. Duplicates are blocked regardless of case or extra spaces, and nothing is written until you click Save Keywords.
 
+**Ratings** use a 4-point scale: 1 Strongly dislike (-0.2), 2 Dislike (-0.1), 3 Like (+0.1), 4 Strongly like (+0.2). The value is added to the personal weight of each tracked keyword the article matched (minimum 0.1). Leaving an article unrated changes nothing. Older history entries without a `scale` field came from the previous 1–5 scale. Their effect is already included in the stored weights, so they are kept as they are and never re-applied. Weight keys are read case-insensitively.
+
 Data files used by the desktop app: `config_local.json` (feeds and schedule), `osf_context.json` (scoring keywords), `user_profile.json` (keyword weights and rating history) and `saved_articles.json` (saved articles).
