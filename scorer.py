@@ -24,8 +24,8 @@ def score_article(article_title: str, article_summary: str, user_profile: Dict[s
     text_to_search = f"{article_title} {article_summary}".lower()
     
     keyword_rules = context.get("keyword_rules", {})
-    high_signal_kws = [kw.lower() for kw in keyword_rules.get("high_signal", [])]
-    low_signal_kws = [kw.lower() for kw in keyword_rules.get("low_signal", [])]
+    high_signal_kws = [kw.strip().lower() for kw in keyword_rules.get("high_signal", [])]
+    low_signal_kws = [kw.strip().lower() for kw in keyword_rules.get("low_signal", [])]
     low_signal_requires_pair = keyword_rules.get("low_signal_requires_pair", False)
 
     # First, find all raw matches
@@ -46,7 +46,8 @@ def score_article(article_title: str, article_summary: str, user_profile: Dict[s
             base_w = item.get("weight", 1)
             cat_name = item.get("name", "Unknown")
             for kw in item.get("keywords", []):
-                kw_lower = kw.lower()
+                # Strip so entries like " OSF HealthCare" still match and line up with profile weights.
+                kw_lower = kw.strip().lower()
                 keyword_to_category[kw_lower] = cat_name
                 keyword_to_base_weight[kw_lower] = base_w
                 
